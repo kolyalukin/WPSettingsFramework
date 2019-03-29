@@ -15,7 +15,7 @@
     "composer/composer": "^1.8"
   },
   "scripts": {
-    "pre-package-install": "WPSettingsFramework\\Bin\\Console::install"
+    "post-package-install": "WPSettingsFramework\\Bin\\Console::install"
   },
   "autoload": {
     "psr-4": {
