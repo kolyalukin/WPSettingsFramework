@@ -3,6 +3,7 @@
   "description": "Wordpress settings framework",
   "type": "library",
   "license": "MIT",
+  "version": "1.0",
   "authors": [
     {
       "name": "Kolya lukin",
