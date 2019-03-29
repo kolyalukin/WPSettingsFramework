@@ -16,7 +16,9 @@
   },
   "scripts": {
     "post-package-install": ["WPSettingsFramework\\Bin\\Console::install", "php -r \"echo 1111111;\" "],
-    "post-install-cmd": ["WPSettingsFramework\\Bin\\Console::install", "php -r \"echo 1111111;\" "]
+    "post-package-update": ["WPSettingsFramework\\Bin\\Console::install", "php -r \"echo 1111111;\" "],
+    "post-install-cmd": ["WPSettingsFramework\\Bin\\Console::install", "php -r \"echo 1111111;\" "],
+    "post-update-cmd": ["WPSettingsFramework\\Bin\\Console::install", "php -r \"echo 1111111;\" "]
   },
   "autoload": {
     "psr-4": {
