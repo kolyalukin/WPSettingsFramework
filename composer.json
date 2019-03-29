@@ -15,10 +15,7 @@
     "composer/composer": "^1.8"
   },
   "scripts": {
-    "settings:install": "@php bin/console.php install",
-    "settings:update": "@php bin/console.php update",
-    "settings:remove": "@php bin/console.php remove",
-    "settings:test": "WPSettingsFramework\\Bin\\Console::install"
+    "pre-package-install": "WPSettingsFramework\\Bin\\Console::install"
   },
   "autoload": {
     "psr-4": {
