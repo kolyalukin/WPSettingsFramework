@@ -3,7 +3,6 @@
 require_once realpath( __DIR__ . '/../vendor/autoload.php' );
 
 use Composer\Script\Event;
-use Composer\Installer\PackageEvent;
 
 class Console {
 
@@ -14,7 +13,7 @@ class Console {
 	/**
 	 *
 	 */
-	const INSERT_FILES_FOLDER = 'test';
+	const INSERT_FILES_FOLDER = 'Settings';
 	/**
 	 *
 	 */
@@ -24,34 +23,46 @@ class Console {
 	 * @param Event $event
 	 */
 	public static function install( Event $event ) {
+		$parentFolder = realpath( $event->getComposer()->getConfig()->get( 'vendor-dir' ) . '/../../../../' );
+		if ( is_dir( $parentFolder ) ) {
+			$composerJson = $parentFolder . '/composer.json';
+			if ( is_file( $composerJson ) ) {
+				$composerJson = file_get_contents( $composerJson );
+				$composerJson = json_decode( $composerJson, true );
 
-		$autoload = $event->getComposer()->getPackage()->getAutoload();
+				if ( $composerJson ) {
 
-		if ( isset( $autoload['psr-4'] ) ) {
-			foreach ( $autoload['psr-4'] as $namespace => $path ) {
-				echo PHP_EOL;
-				echo PHP_EOL;
-				echo 'Project Namespace    --------------> ' . $namespace . PHP_EOL;
-				echo PHP_EOL;
-				echo PHP_EOL;
-				echo 'Project Install Path --------------> ' . $path . PHP_EOL;
-				echo PHP_EOL;
-				echo PHP_EOL;
+					foreach ( $composerJson['autoload']['psr-4'] as $namespace => $path ) {
 
-				$rawFilesPath = realpath( $event->getComposer()->getConfig()->get( 'vendor-dir' ) . '/../' . self::RAW_FILES_FOLDER );
+						$path = $parentFolder . '/' . $path;
 
-				if ( is_dir( $rawFilesPath ) ) {
-					$files = [];
-					self::getAllRawFiles( $rawFilesPath, $files, self::RAW_FILES_FOLDER );
+						$install = $event->getIO()->ask( "Install in \e[31m{$path}\e[0m folder? (yes/no) ", 'yes' );
 
-					if ( ! empty( $files ) ) {
-						$insertFilesPath = realpath( $event->getComposer()->getConfig()->get( 'vendor-dir' ) . '/../' . self::INSERT_FILES_FOLDER );
-						self::copyWithNameSpace( array_values( $files )[0], $namespace, $insertFilesPath );
+						if ( $install != 'yes' ) {
+							return;
+
+						}
+
+						$namespace = $event->getIO()->ask( 'Which namespace install with (' . $namespace . ')? ',
+							$namespace );
+
+						$rawFilesPath = realpath( $event->getComposer()->getConfig()->get( 'vendor-dir' ) . '/../' . self::RAW_FILES_FOLDER );
+
+						if ( is_dir( $rawFilesPath ) ) {
+							$files = [];
+							self::getAllRawFiles( $rawFilesPath, $files, self::RAW_FILES_FOLDER );
+
+							if ( ! empty( $files ) ) {
+								self::copyWithNameSpace( array_values( $files )[0], $namespace,
+									$path . '/' . self::INSERT_FILES_FOLDER );
+							}
+						}
+						echo "Done." . PHP_EOL . PHP_EOL;
 					}
 				}
 			}
-			echo "Done." . PHP_EOL . PHP_EOL;
 		}
+		exit;
 	}
 
 	/**
