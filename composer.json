@@ -1,0 +1,27 @@
+{
+  "name": "premmerce/settings",
+  "description": "Wordpress settings framework",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Kolya lukin",
+      "email": "mykola@imagecms.net"
+    }
+  ],
+  "require": {
+    "symfony/console": "^4.2",
+    "composer/composer": "^1.8"
+  },
+  "scripts": {
+    "settings:install": "@php bin/console.php install",
+    "settings:update": "@php bin/console.php update",
+    "settings:remove": "@php bin/console.php remove",
+    "settings:test": "WPSettingsFramework\\Bin\\Console::install"
+  },
+  "autoload": {
+    "psr-4": {
+      "WPSettingsFramework\\Bin\\" : "Bin"
+    }
+  }
+}
