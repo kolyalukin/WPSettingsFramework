@@ -1,7 +1,7 @@
 {
   "name": "kolyalukin/WPSettingsFramework",
   "description": "Wordpress settings framework",
-  "type": "library",
+  "type": "wordpress-settings",
   "license": "MIT",
   "version": "1.0",
   "authors": [
@@ -13,7 +13,8 @@
 
   "require": {
     "symfony/console": "^4.2",
-    "composer/composer": "^1.8"
+    "composer/composer": "^1.8",
+    "composer/installers": "~1.0"
   },
 
   "scripts": {
@@ -24,5 +25,5 @@
     "psr-4": {
       "WPSettingsFramework\\Bin\\" : "Bin"
     }
-  }
+  },
 }
