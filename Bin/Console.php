@@ -36,9 +36,13 @@ class Console {
 
 						$path = $parentFolder . '/' . $path;
 
-						echo "Install in \e[32m{$path}\e[0m folder?";
+						echo PHP_EOL . PHP_EOL;
 
-						echo "Install with \e[32m{$namespace}\e[0m namespace",
+						echo "Install in \e[32m{$path}\e[0m folder" . PHP_EOL;
+
+						echo "Install with \e[32m{$namespace}\e[0m namespace" . PHP_EOL;
+
+						echo PHP_EOL . PHP_EOL;
 
 						$rawFilesPath = realpath( $event->getComposer()->getConfig()->get( 'vendor-dir' ) . '/../' . self::RAW_FILES_FOLDER );
 
