@@ -15,7 +15,7 @@
     "composer/composer": "^1.8"
   },
   "scripts": {
-    "settings:install": "WPSettingsFramework\\Bin\\Console::install",
+    "settings:install": "WPSettingsFramework\\Bin\\Console::install"
   },
   "autoload": {
     "psr-4": {
