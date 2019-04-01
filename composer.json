@@ -10,22 +10,19 @@
       "email": "mykola@imagecms.net"
     }
   ],
+
   "require": {
     "symfony/console": "^4.2",
-    "composer/composer": "^1.8",
-    "composer/installers": "~1.0"
+    "composer/composer": "^1.8"
   },
+
   "scripts": {
     "settings:install": "WPSettingsFramework\\Bin\\Console::install"
   },
+
   "autoload": {
     "psr-4": {
       "WPSettingsFramework\\Bin\\" : "Bin"
-    }
-  },
-  "extra": {
-    "installer-paths": {
-      "src/{$name}/": ["kolyalukin/settings"]
     }
   }
 }
