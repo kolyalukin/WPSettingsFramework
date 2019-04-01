@@ -36,15 +36,9 @@ class Console {
 
 						$path = $parentFolder . '/' . $path;
 
-						$install = $event->getIO()->ask( "Install in \e[31m{$path}\e[0m folder? (yes/no) ", 'yes' );
+						echo "Install in \e[32m{$path}\e[0m folder?";
 
-						if ( $install != 'yes' ) {
-							return;
-
-						}
-
-						$namespace = $event->getIO()->ask( 'Which namespace install with (' . $namespace . ')? ',
-							$namespace );
+						echo "Install with \e[32m{$namespace}\e[0m namespace",
 
 						$rawFilesPath = realpath( $event->getComposer()->getConfig()->get( 'vendor-dir' ) . '/../' . self::RAW_FILES_FOLDER );
 
@@ -57,7 +51,7 @@ class Console {
 									$path . '/' . self::INSERT_FILES_FOLDER );
 							}
 						}
-						echo "Done." . PHP_EOL . PHP_EOL;
+						echo " \e[32m Done. \e[0m" . PHP_EOL . PHP_EOL;
 					}
 				}
 			}
