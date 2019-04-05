@@ -19,5 +19,9 @@
     "psr-4": {
       "WPSettingsFramework\\Bin\\" : "Bin"
     }
-  }
+  },
+
+  "bin": [
+    "bin/install"
+  ]
 }
