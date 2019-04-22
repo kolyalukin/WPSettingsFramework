@@ -1,6 +1,6 @@
-<?php namespace WPSettingsFramework\Bin\Settings\Fields;
+<?php namespace WPSettingsFramework\Framework\Fields;
 
-use Settings\SettingFieldAbstract;
+use WPSettingsFramework\Framework\SettingFieldAbstract;
 
 class TextField extends SettingFieldAbstract {
 

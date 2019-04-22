@@ -11,17 +11,16 @@
     }
   ],
 
-  "scripts": {
-    "settings:install": "WPSettingsFramework\\Bin\\Console::install"
-  },
-
   "autoload": {
     "psr-4": {
-      "WPSettingsFramework\\Bin\\" : "Bin"
+      "WPSettingsFramework\\" : "src"
     }
   },
 
   "bin": [
     "bin/wpsettings"
-  ]
+  ],
+  "require": {
+    "symfony/console": "^4.2"
+  }
 }

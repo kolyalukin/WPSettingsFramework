@@ -1,4 +1,4 @@
-<?php namespace WPSettingsFramework\Bin\Settings;
+<?php namespace WPSettingsFramework\Framework;
 
 /**
  * Class SettingFieldAbstract

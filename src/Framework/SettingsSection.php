@@ -1,4 +1,4 @@
-<?php namespace Settings;
+<?php namespace WPSettingsFramework\Framework;
 
 class SettingsSection {
 

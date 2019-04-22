@@ -14,7 +14,7 @@ class ComposerStaticInit01fe0449a18b780062c2c783675d3d7f
     public static $prefixLengthsPsr4 = array (
         'W' => 
         array (
-            'WPSettingsFramework\\Bin\\' => 24,
+            'WPSettingsFramework\\' => 20,
         ),
         'S' => 
         array (
@@ -47,9 +47,9 @@ class ComposerStaticInit01fe0449a18b780062c2c783675d3d7f
     );
 
     public static $prefixDirsPsr4 = array (
-        'WPSettingsFramework\\Bin\\' => 
+        'WPSettingsFramework\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/Bin',
+            0 => __DIR__ . '/../..' . '/src',
         ),
         'Symfony\\Polyfill\\Mbstring\\' => 
         array (
